@@ -1,4 +1,4 @@
-@startuml
+@startuml sample01
 
 Class11 <|.. Class12 :实现
 Class13 <.. Class14 : 依赖
