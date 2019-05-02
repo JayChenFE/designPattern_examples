@@ -1,0 +1,8 @@
+@startuml sample02
+class 动物 {
++有生命
++新陈代谢(空气,水)
++method2()
+}
+
+@enduml

@@ -1,0 +1,31 @@
+@startuml Observer 
+class Subject{
+    - objList:List<Observer>
+    + attach():void
+    + detach():void
+    + notifytach():void
+}
+
+class Observer{
+    + update():void
+}
+
+class ConcreteSubject{
+    - state:int
+    - getState():void
+    - setState():void
+}
+
+class ConcreteObserver{
+    - observerState:int
+    + update():void
+}
+
+Subject <|-- ConcreteSubject
+Subject -> Observer
+Observer <|-- ConcreteObserver
+ConcreteSubject <- ConcreteObserver
+
+note left of Subject: for all o in objList,o->update() 
+note right of ConcreteObserver: observerState=subject->getState()
+@enduml

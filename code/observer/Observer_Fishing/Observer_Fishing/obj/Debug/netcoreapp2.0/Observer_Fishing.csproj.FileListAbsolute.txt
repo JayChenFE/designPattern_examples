@@ -1,0 +1,11 @@
+F:\playground\vs\Observer_Fishing\Observer_Fishing\bin\Debug\netcoreapp2.0\Observer_Fishing.deps.json
+F:\playground\vs\Observer_Fishing\Observer_Fishing\bin\Debug\netcoreapp2.0\Observer_Fishing.runtimeconfig.json
+F:\playground\vs\Observer_Fishing\Observer_Fishing\bin\Debug\netcoreapp2.0\Observer_Fishing.runtimeconfig.dev.json
+F:\playground\vs\Observer_Fishing\Observer_Fishing\bin\Debug\netcoreapp2.0\Observer_Fishing.dll
+F:\playground\vs\Observer_Fishing\Observer_Fishing\bin\Debug\netcoreapp2.0\Observer_Fishing.pdb
+F:\playground\vs\Observer_Fishing\Observer_Fishing\obj\Debug\netcoreapp2.0\Observer_Fishing.csprojResolveAssemblyReference.cache
+F:\playground\vs\Observer_Fishing\Observer_Fishing\obj\Debug\netcoreapp2.0\Observer_Fishing.csproj.CoreCompileInputs.cache
+F:\playground\vs\Observer_Fishing\Observer_Fishing\obj\Debug\netcoreapp2.0\Observer_Fishing.AssemblyInfoInputs.cache
+F:\playground\vs\Observer_Fishing\Observer_Fishing\obj\Debug\netcoreapp2.0\Observer_Fishing.AssemblyInfo.cs
+F:\playground\vs\Observer_Fishing\Observer_Fishing\obj\Debug\netcoreapp2.0\Observer_Fishing.dll
+F:\playground\vs\Observer_Fishing\Observer_Fishing\obj\Debug\netcoreapp2.0\Observer_Fishing.pdb
