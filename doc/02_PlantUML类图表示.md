@@ -26,10 +26,10 @@
 ```js
 @startuml
 
-Class11 <|.. Class12 实现
-Class13 <.. Class14  依赖
-Class15 *.. Class16  组合
-Class17 o.. Class18  聚合
+Class11 <|.. Class12 :实现
+Class13 <.. Class14  :依赖
+Class15 *.. Class16  :组合
+Class17 o.. Class18  :聚合
 Class19 .. Class20 
 
 @enduml

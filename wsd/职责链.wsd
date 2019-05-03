@@ -1,0 +1,29 @@
+@startuml ROC 
+
+
+class Client{
+   
+}
+
+class ConcreteHandlerA{
+    - successor:Handler
+    + HandlerRequest():void
+}
+
+class ConcreteHandlerB{
+    - successor:Handler
+    + HandlerRequest():void
+}
+
+class Handler{
+    - successor:Handler
+    + HandlerRequest():void
+}
+
+
+
+Handler --o Handler:successor
+Client .right.> Handler
+ConcreteHandlerA -up-|>Handler
+ConcreteHandlerB -up-|>Handler
+@enduml
