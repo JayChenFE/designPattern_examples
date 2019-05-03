@@ -23,7 +23,7 @@
 
 01
 
-```
+```js
 @startuml
 
 Class11 <|.. Class12 实现

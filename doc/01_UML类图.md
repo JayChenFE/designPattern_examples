@@ -1,10 +1,38 @@
 学习设计模式需要的UML类图知识
 
+# 类
+
+类是一组具有相同属性、操作、关系和语义的对象描述，一个类可是实现一个或者多个接口
+
+![](https://raw.githubusercontent.com/JayChenFE/pic/master/20190503160656.png)
+
+- UML预设了四种可见性，分别为
+
+  - 公开(public)
+
+  - 私有(private)
+
+  - 保护(protected)
+
+  - 包(package)
+
+     减号(-)为私有可见性，加号(+)为公开可见性。可见，上图中的类图所有都为public
+
 ## 类之间的关系
 
-类之间 常见的六种关系有泛化、实现、组合、聚合、关联、依赖
+关系是事物之间的联系，在面向对象的建模中，有三种重要的关系是依赖、泛化、关联。
 
-<br/>
+----
+
+- 依赖，`Dependency`
+  - `依赖关系`: 是一种**使用关系**,即一个类的实现需要另一个类的协助,所以要尽量不使用双向互相依赖.
+  - `代码表现`: 局部变量,方法的参数或者对静态方法的调用.`箭头指向` :带箭头的虚线,指向被使用者. 
+
+  ![](https://raw.githubusercontent.com/JayChenFE/pic/master/design_pattern/006.png) 
+
+  - 依赖关系在.net语言中体现为 **局部变量**、**方法的参数**或者**对静态方法的调用**，如工具类，现实生活中人与锤子。
+
+    ![](https://raw.githubusercontent.com/JayChenFE/pic/master/20190503161245.png)
 
 ----
 
@@ -47,7 +75,7 @@
 
   - `代码体现` :成员变量
 
-  - `箭头指向` :带**实心菱形**的实线,**菱形指向整体**
+  - `箭头指向` :带**空心菱形**的实线,**菱形指向整体**
 
   ![](https://raw.githubusercontent.com/JayChenFE/pic/master/design_pattern/004.png)
 
@@ -61,17 +89,9 @@
 
   - `代码体现`:成员变量 
 
-  - `箭头指向`: 带**空心菱形**的实线,**菱形指向整体**
+  - `箭头指向`:
 
   ![](https://raw.githubusercontent.com/JayChenFE/pic/master/design_pattern/005.png)
-
-----
-
-- 依赖，`Dependency`
-  - `依赖关系`: 是一种使用关系,即一个类的实现需要另一个类的协助,所以要尽量不使用双向互相依赖.
-  - `代码表现`: 局部变量,方法的参数或者对静态方法的调用.`箭头指向` :带箭头的虚线,指向被使用者. 
-
-  ![](https://raw.githubusercontent.com/JayChenFE/pic/master/design_pattern/006.png) 
 
 ----
 
