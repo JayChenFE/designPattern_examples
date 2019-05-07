@@ -29,10 +29,7 @@
                 return ret;
             }
         };
-
-
     </script>
-
 </body>
 
 </html>
@@ -77,6 +74,139 @@
 
     showLogin = showLogin.after(log); // 打开登录浮层之后上报数据
     document.getElementById('button').onclick = showLogin;
+</script>
+
+</html>
+
+<!-- 用AOP动态改变函数的参数 -->
+<script>
+    Function.prototype.before = function (beforefn) {
+        var __self = this;
+        return function () {
+            beforefn.apply(this, arguments); // (1)
+            return __self.apply(this, arguments); // (2)
+        }
+    }
+
+    var func = function (param) {
+        console.log(param); // 输出： {a: "a", b: "b"}
+    }
+    func = func.before(function (param) {
+        param.b = 'b';
+    });
+    func({ a: 'a' });
+</script>
+
+<script>
+    var getToken = function () {
+        return 'Token';
+    }
+    var ajax = function (type, url, param) {
+        console.dir(param);
+        // 发送ajax 请求的代码略
+    };
+
+    ajax = ajax.before(function (type, url, param) {
+        param.token = getToken();
+    });
+    ajax('get', 'http:// xxx.com/userinfo', { name: 'sven' });
+    //{ name: "sven", token: "Token" }
+</script>
+
+<!-- 插件式的表单验证 -->
+<html>
+
+<body>
+    用户名：<input id="username" type="text" />
+
+    密码： <input id="password" type="password" />
+    <input id="submitBtn" type="button" value="提交"></button>
+</body>
+<script>
+    var username = document.getElementById('username'),
+        password = document.getElementById('password'),
+        submitBtn = document.getElementById('submitBtn');
+    var formSubmit = function () {
+        if (username.value === '') {
+            return alert('用户名不能为空');
+        }
+        if (password.value === '') {
+            return alert('密码不能为空');
+        }
+        var param = {
+            username: username.value,
+            password: password.value
+        }
+        ajax('http:// xxx.com/login', param); // ajax 具体实现略
+    }
+
+    submitBtn.onclick = function () {
+        formSubmit();
+    }
+
+</script>
+<script>
+    var validata = function () {
+        if (username.value === '') {
+            alert('用户名不能为空');
+            return false;
+        }
+        if (password.value === '') {
+            alert('密码不能为空');
+            return false;
+        }
+    }
+
+    var formSubmit = function () {
+        if (validata() === false) { // 校验未通过
+            return;
+        }
+        var param = {
+            username: username.value,
+            password: password.value
+        }
+        ajax('http:// xxx.com/login', param);
+    }
+</script>
+<script>
+    submitBtn.onclick = function () {
+        formSubmit();
+    }
+
+    Function.prototype.before = function (beforefn) {
+        var __self = this;
+        return function () {
+            if (beforefn.apply(this, arguments) === false) {
+                // beforefn 返回false 的情况直接return，不再执行后面的原函数
+                return;
+            }
+            return __self.apply(this, arguments);
+        }
+    }
+
+    var validata = function () {
+        if (username.value === '') {
+            alert('用户名不能为空');
+            return false;
+        }
+        if (password.value === '') {
+            alert('密码不能为空');
+            return false;
+        }
+    }
+    var formSubmit = function () {
+        var param = {
+            username: username.value,
+            password: password.value
+        }
+        ajax('http:// xxx.com/login', param);
+    }
+
+    formSubmit = formSubmit.before(validata);
+
+    submitBtn.onclick = function () {
+        formSubmit();
+    }
 </script>
 
 </html>
