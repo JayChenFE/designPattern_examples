@@ -26,6 +26,12 @@ Player.prototype.changeTeam = function (color) {
     playerDirector.reciveMessage('changeTeam', this, color); // 给中介者发送消息，玩家换队
 };
 
+var playerFactory = function (name, teamColor) {
+    var newPlayer = new Player(name, teamColor); // 创造一个新的玩家对象
+    playerDirector.reciveMessage('addPlayer', newPlayer); // 给中介者发送消息，新增玩家
+    return newPlayer;
+};
+
 var playerDirector = (function () {
     var players = {}, // 保存所有玩家
         operations = {}; // 中介者可以执行的操作
@@ -80,7 +86,8 @@ var playerDirector = (function () {
     };
 
     var reciveMessage = function () {
-        var message = [...arguments][0]; // arguments 的第一个参数为消息名称
+        var message = Array.prototype.shift.call(arguments); // arguments 的第一个参数为消息名称
+        // arguments删除掉第一个参数剩余的传给实际调用的方法
         operations[message].apply(this, arguments);
     };
 
