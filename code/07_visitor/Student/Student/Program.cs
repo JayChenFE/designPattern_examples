@@ -7,12 +7,12 @@ namespace Student
     {
         static void Main(string[] args)
         {
-            List<Student> students = new List<Student>
-                {
+            var students = new List<Student>
+            {
                     new BrainyStudent(),
                     new InferiorStudent()
                     //...
-                };
+            };
 
             //// 出成绩了
             //foreach (var student in students)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Calculator
 {
@@ -7,7 +8,9 @@ namespace Calculator
     /// </summary>
     public class Calculator
     {
+
         private int _curr = 0;
+
         public void Operation(char @operator, int operand)
         {
             switch (@operator)

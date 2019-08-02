@@ -7,7 +7,7 @@ namespace Student_Visitor
     {
         static void Main(string[] args)
         {
-            List<Student> students = new List<Student>
+            var students = new List<Student>
             {
                 new BrainyStudent(),
                 new InferiorStudent()
@@ -15,11 +15,15 @@ namespace Student_Visitor
             };
 
             Visitor v = new ReleaseScoreVisitor();
+            Visitor v2 = new VacationVisitor();
 
             foreach (var student in students)
             {
                 student.Accept(v);
+                student.Accept(v2);
             }
+
+            Console.ReadKey();
         }
     }
 
@@ -84,6 +88,19 @@ namespace Student_Visitor
         public override void VisitInferiorStudent(InferiorStudent inferiorStudent)
         {
             Console.WriteLine("出成绩了，不开心");
+        }
+    }
+
+    public class VacationVisitor : Visitor
+    {
+        public override void VisitBrainyStudent(BrainyStudent brainyStudent)
+        {
+            Console.WriteLine("放假了，不开心");
+        }
+
+        public override void VisitInferiorStudent(InferiorStudent inferiorStudent)
+        {
+            Console.WriteLine("放假了，开心");
         }
     }
 }
